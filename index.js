@@ -2,6 +2,7 @@ if(localStorage.maxscore==[]||!localStorage.maxscore){
     localStorage.maxscore=0;
 }
 window.onload=function () {
+    let gradelist=document.querySelector(".grade");
     function Snake(par) {
         this.par=par;
         this.score=document.querySelector("div.score").firstElementChild;
@@ -13,6 +14,7 @@ window.onload=function () {
     }
     Snake.prototype= {
         play() {
+            gradelist.style.display="none";
             this.flag=true;
             this.drawDiv();
             this.drawSnake();
@@ -80,7 +82,7 @@ window.onload=function () {
                     clearInterval(t);
                     this.grade.style.display="block";
                     this.btn1.onclick=function () {
-                        history.go(0);
+                        newSnake.play();
                     };
                     this.endscore.innerText=this.arr.length-3;
 
