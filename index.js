@@ -40,10 +40,14 @@ window.onload=function () {
         })
         },
         drawFood() {
-            let x=Math.floor(Math.random()*20);
-            let y=Math.floor(Math.random()*20);
+            let x;
+            let y;
             do{
-                document.querySelector(`#c${x}-${y}`).classList.add("food");
+                x=Math.floor(Math.random()*20);
+                y=Math.floor(Math.random()*20);
+                if(!this.decide(x,y)){
+                  document.querySelector(`#c${x}-${y}`).classList.add("food");
+                }
             }while(this.decide(x,y));
             return {x,y};
         },
